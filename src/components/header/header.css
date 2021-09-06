@@ -1,0 +1,39 @@
+.header {
+    width: 100%;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  
+.navigation {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+  
+  .container-fon {
+    margin: 0 auto;
+    min-height: 500px;
+    width: 100%;
+    background-image: url(../../Image/fon.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  #credits {
+    margin-top: 200px;
+  }
+
+  
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #313131;
+  }
+  
+  a:hover {
+    color: #198754;
+    text-decoration: underline;
+  }

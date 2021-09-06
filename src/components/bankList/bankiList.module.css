@@ -1,0 +1,14 @@
+
+.container_fon {
+    margin: 0 auto;
+    min-height: 500px;
+    width: 100%;
+    background-image: url(../../Image/fon.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.credits {
+    margin-top: 200px;
+}

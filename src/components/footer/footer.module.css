@@ -1,0 +1,35 @@
+.footer {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #313131;
+}
+.p_2{
+    padding: 20px;
+}
+.footer_container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.img{
+    width: 30px;
+}
+
+.logo{
+    width: 150px;
+}
+
+
+
+.footer #info {
+    font-size: 14px;
+}
+
+/*.card {*/
+/*    width: 800px;*/
+/*}*/
+
+/*.card:hover {*/
+/*    transform: scale(1.01);*/
+/*    transition-duration: 0.3s;*/
+/*}*/

@@ -11,19 +11,14 @@
     margin: 0 auto;
     max-width: 1000px;
   }
-  
 
-  
-
-
-  
-  a {
+a {
     text-decoration: none;
     cursor: pointer;
     color: #313131;
-  }
+}
   
-  a:hover {
+a:hover {
     color: #198754;
     text-decoration: underline;
-  }
+}

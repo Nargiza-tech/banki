@@ -1,5 +1,8 @@
 
+
+
 import React from 'react';
+
 import newFile from '..//.//./../Image/new-file.png';
 import bank from '..//.//./../Image/bank.png';
 import choice from '..//.//./../Image/choice.png';

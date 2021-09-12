@@ -1,21 +1,21 @@
   
-  .container {
+.container {
     max-width: 1000px;
     background-color: #ffffff;
-  }
+}
 
-  .form{
+.form{
     color: #3CB371;
-  }
+}
 
 
-  .credit {
+.credit {
     background-color: #3CB371;
     color: white;
 
-  }
+}
 
-  .credit:hover {
+.credit:hover {
     transform: scale(1.03);
     color: white;
-  }
+}

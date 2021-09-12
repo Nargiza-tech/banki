@@ -1,12 +1,9 @@
 import React from 'react';
-
-import classes from './footer.module.css'
+import classes from './footer.module.css';
 import logoFooter from './../../Image/logo-footer.svg';
-import facebook from './../../Image/facebook.svg'
-import instagram from './../../Image/instagram.svg'
-import whattsapp from './../../Image/whatsapp.svg'
-
-
+import facebook from './../../Image/facebook.svg';
+import instagram from './../../Image/instagram.svg';
+import whattsapp from './../../Image/whatsapp.svg';
 
 class Footer extends React.Component{
 
@@ -34,10 +31,8 @@ class Footer extends React.Component{
                     </div>
                 </div>
             </div>
-
-    )
+        )
     }
-
 }
 
 export default Footer;

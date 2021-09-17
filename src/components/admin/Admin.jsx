@@ -4,22 +4,29 @@ import './css/sb-admin-2.min.css';
 import classes from './admin.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons'
+import Card from "./Card";
 
+let form = {};
 
 class Admin extends React.Component{
-
     constructor(props){
         super(props);
 
         this.state = {
             title: "",
-            image_url: "",
             description: "",
-            cardData: []
+            image_url: "",
 
+            cardData: [],
+            form:{}
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+
+
+    componentDidMount(){
         const url = 'http://localhost:3000/card';
         fetch(url)
             .then(response => {
@@ -29,19 +36,12 @@ class Admin extends React.Component{
             })
             .then(data => this.setState({cardData: data}))
 
+
     }
-
-     handleChange(event){
-       this.setState({
-             [event.target.id]: event.target.value,
-        });
-     }
-
-
 
     handleSubmit(){
 
-        let obj = { ...this.state }
+        let obj = { ...this.state.form}
 
         let option = {
             method: "POST",
@@ -52,7 +52,17 @@ class Admin extends React.Component{
         };
         fetch("http://localhost:3000/card", option)
             .then(response => response.json);
+
     }
+
+    handleChange(event){
+        form[event.target.id] = event.target.value;
+
+        this.setState({
+            form
+        });
+    }
+
 
     render(){
         return(
@@ -65,38 +75,15 @@ class Admin extends React.Component{
                                 <div className="d-sm-flex align-items-center justify-content-between mb-4">
                                     <h1 className="h3 mb-0 text-grey-800">Banks</h1>
                                 </div>
-                                <div className="row">
-                                    {/* Earnings (Monthly) Card Example */}
-                                    <div className="col-xl-3 col-md-6 mb-4">
-                                        <div className="card border-left-primary shadow h-100 py-2">
-                                            <div className="card-body p-3">
-                                                <div className="row no-gutters align-items-center">
-                                                    <div className="col mr-2">
-                                                        <div className='float-end'>
-                                                            {/*DELETE ICON*/}
-                                                        <FontAwesomeIcon icon={faTrash} className={`${classes.add} mr-3`}/>
+                                <div>
 
+                                    {
+                                        this.state.cardData.map(item => (
+                                            <Card key={item.id} data={item}/>
+                                        ))
+                                    }
 
-                                                        {/*EDIT ICON*/}
-                                                        <FontAwesomeIcon icon={faPen} data-bs-toggle="modal" data-bs-target="#exampleEditModal"/>
-                                                        </div>
-                                                        <div className="text-xs font-weight-bold text-primary text-uppercase mb-1"></div>
-                                                        <div className="h5 mb-0 font-weight-bold text-gray-800">
-                                                            {
-                                                                this.state.cardData.map(data=> (
-                                                                    <>
-                                                                        <h1>№{data.id} {data.title}</h1>
-                                                                        <p>{data.description}</p>
-                                                                    </>
-                                                                ))
-                                                            }
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
 
                                     {/*EDIT MODAL*/}
                                     <div className="modal fade" id="exampleEditModal" tabIndex="-1"
@@ -167,7 +154,7 @@ class Admin extends React.Component{
                                 </div>
                             </div>
                     </div>
-                </div>
+
 
             </>
         )

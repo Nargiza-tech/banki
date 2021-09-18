@@ -4,7 +4,7 @@ import './css/sb-admin-2.min.css';
 import classes from './admin.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons'
-import Card from "./Card";
+import Cards from "./Card";
 
 let form = {};
 
@@ -13,12 +13,7 @@ class Admin extends React.Component{
         super(props);
 
         this.state = {
-            title: "",
-            description: "",
-            image_url: "",
-
-            cardData: [],
-            form:{}
+            cardData: []
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,8 +46,8 @@ class Admin extends React.Component{
             body: JSON.stringify(obj)
         };
         fetch("http://localhost:3000/card", option)
-            .then(response => response.json);
-
+            .then(response => response.json)
+            .then()
     }
 
     handleChange(event){
@@ -79,40 +74,13 @@ class Admin extends React.Component{
 
                                     {
                                         this.state.cardData.map(item => (
-                                            <Card key={item.id} data={item}/>
+                                            <Cards key={item.id} data={item}/>
                                         ))
                                     }
 
                                 </div>
 
-                                    {/*EDIT MODAL*/}
-                                    <div className="modal fade" id="exampleEditModal" tabIndex="-1"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div className="modal-dialog">
-                                            <div className="modal-content">
-                                                <div className="modal-header">
-                                                    <h5 className="modal-title"
-                                                        id="exampleEditModalLabel">Редактировать</h5>
-                                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
-                                                </div>
-                                                <div className="modal-body">
-                                                    <label htmlFor="title">Название банка</label>
-                                                    <input id="title" className="form-control mb-2" type="text"/>
-                                                    <label htmlFor="description">Описание банка</label>
-                                                    <input id="description" className="form-control mb-2" type="text"/>
-                                                    <label htmlFor="image_url">Логотип банка</label>
-                                                    <input id="image_url" className="form-control" type="text"/>
-                                                </div>
-                                                <div className="modal-footer">
-                                                    <button type="button" className="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close
-                                                    </button>
-                                                    <button type="button" className="btn btn-primary">Save changes
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
 
                                     <div className="row">
                                         <div className="col-lg-6 ml-auto">
@@ -139,7 +107,8 @@ class Admin extends React.Component{
                                                     <input id="description" className="form-control mb-2" type="text" onChange={this.handleChange}/>
                                                     <label htmlFor="image_url">Логотип банка</label>
                                                     <input id="image_url" className="form-control" type="text" onChange={this.handleChange}/>
-                                                </div>
+
+                                                    </div>
                                                 <div className="modal-footer">
                                                     <button type="button" className="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close
